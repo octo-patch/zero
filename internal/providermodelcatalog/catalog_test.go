@@ -179,8 +179,8 @@ func TestMiniMaxModelsExposeCurrentCapabilities(t *testing.T) {
 	}
 
 	m31Flash := models[1]
-	if m31Flash.ContextWindow != 1_000_000 || !m31Flash.Reasoning {
-		t.Fatalf("MiniMax-M3.1-Flash capabilities = %#v, want 1M context with reasoning", m31Flash)
+	if m31Flash.ContextWindow != 1_000_000 || !m31Flash.ToolCall || !m31Flash.Reasoning {
+		t.Fatalf("MiniMax-M3.1-Flash capabilities = %#v, want 1M context with tools and reasoning", m31Flash)
 	}
 	if !reflect.DeepEqual(m31Flash.ReasoningEfforts, []string{"low", "medium", "high", "xhigh", "max"}) ||
 		m31Flash.DefaultReasoningEffort != "max" {

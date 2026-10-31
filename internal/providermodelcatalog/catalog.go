@@ -48,6 +48,7 @@ var minimaxCuratedModels = []Model{
 		ID:                     "MiniMax-M3.1-Flash",
 		Description:            "fast reasoning model",
 		ContextWindow:          1_000_000,
+		ToolCall:               true,
 		Reasoning:              true,
 		ReasoningEfforts:       []string{"low", "medium", "high", "xhigh", "max"},
 		DefaultReasoningEffort: "max",
